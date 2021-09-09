@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="container">
+  <div class="text-center mt-3">
+  <h4 class="para bg-gradient text-white shadow-lg pt-1 pb-1">Grocery List</h4>
+</div>
+
+<table class="table table-hover shadow-lg p-2 mb-2">
+  <thead>
+    <tr>
+         <th scope="col">Id</th>
+         <th scope="col">Grocery Image</th>
+         <th scope="col">Grocery Name</th>
+         <th scope="col">Price(₹)</th>
+         <th scope="col">Grocery Type</th>
+         <th scope="col">Quantity</th>
+         <th scope="col" class="text-md-start">Actions</th>
+</tr>
+  </thead>
+  <tbody>
+        {% for groc in groclist %}
+        {% if groc.grocType == types %}
+        <tr>
+            <td class="text-white">{{groc.grocId}}</td>
+            <td><img src="static\uploadimg\{{groc.grocImg}}" width="180"  height="150"></td>
+            <td class="text-white">{{groc.grocName}}</td>
+            <td class="text-white">{{groc.grocPrice}}</td>
+            <td class="text-white">{{groc.grocType}}</td>
+            <td class="text-white">{{groc.grocQuantity}}</td>
+            <td><a onclick="return confirm('Do you want to Delete this record?')" href="deletegroc/{{groc.grocId}}" class=" btn btn-danger">Delete</a>
+                <a href="editgroc/{{groc.grocId}}" class="text-dark btn btn-warning">Update</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock body %}

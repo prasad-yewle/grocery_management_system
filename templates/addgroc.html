@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+<h4 class="container para bg-gradient text-white shadow-lg text-center col-6 mt-3 pt-1 pb-1">Add Grocery</h4>
+    <div class="container shadow-lg p-2 mb-2 mt-3 col-6 ">
+
+    {% if action=='Add' %}
+    <form action="/savegroc" method="POST" enctype="multipart/form-data">
+
+    {% endif %}
+    {% if action=='Edit' %}
+
+    <form action="/updategroc" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+            <label for="grocId" class="form-label text-white">Id</label>
+            <input type="number" class="form-control" id="grocId" name="grocId" value="{{groc.grocId}}" readonly>
+    </div>
+
+    {% endif %}
+
+    <div class="mb-3">
+            <label for="grocName" class="form-label text-white">Name</label>
+            <input type="text" class="form-control" id="grocName"name="grocName" placeholder="Enter grocery name" value="{{groc.grocName}}" >
+    </div>
+
+    <div class="mb-3">
+            <label for="grocPrice" class="form-label text-white">Price</label>
+            <input type="number" class="form-control" id="grocPrice" name="grocPrice" placeholder="Enter grocery price" value="{{groc.grocPrice}}" >
+    </div>
+
+    <div class="mb-3">
+            <label for="grocType" class="form-label text-white">Grocery Type</label>
+            <input type="text" class="form-control" id="grocType" name="grocType" placeholder="Enter grocery type" value="{{groc.grocType}}" >
+    </div>
+
+    <div class="mb-3">
+            <label for="grocQuantity" class="form-label text-white">Quantity</label>
+            <input type="text" class="form-control" id="grocQuantity" name="grocQuantity" placeholder="Enter quantity" value="{{groc.grocQuantity}}" >
+    </div>
+
+    <div class="mb-3">
+            <label for="grocImg" class="form-label text-white">Grocery Image</label>
+            <input type="file" class="form-control" id="grocImg" name="grocImg">
+    </div>
+    <button type="submit" class="btn btn-outline-dark text-light ">Submit</button>
+  </form>
+</div>
+
+
+{% endblock body %}

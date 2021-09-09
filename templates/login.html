@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <style>
+        body{
+          background: linear-gradient(90deg, #095c5a, #006572, #006c8c, #0070a5, #3372b8, #6e70c2, #a069bf, #cc60b1);
+          }
+        #container{
+            margin-top: 200px;
+          }
+    
+  /* Extra small devices (iphones and up) */
+  @media only screen and (min-width: 280px) {
+  #container {width:80%
+  } ;
+ }
+
+ /* Small devices (large phones, 400px and up) */
+ @media only screen and (min-width: 400px) {
+  #container{
+    width: 70%;
+  }
+}
+
+/* Medium devices (portrait tablets 600px and up) */
+@media only screen and (min-width: 600px) {
+  #container{
+    width: 50%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+ #container{
+   width: 25%;
+ }
+}
+</style>
+<title>GRMS Login</title>
+</head>
+<body>
+  
+    <div class=" container shadow-lg p-2 col-4 text-center" id="container">
+
+        <img src="static/media/login.png " width="100" height="100" class="img-fluid">
+
+        <h4 class="text-white">Login Here</h4>
+        <form action="" method="post">
+
+        <input type="text" placeholder="Enter Username" name="username" value="{{request.form.username }}" class="col-5 form-control" required/>
+        <br>
+        
+        <input type="password" placeholder="Enter Password" name="password" value="{{request.form.password }}" class="col-5 form-control" required/>
+        <br>
+        
+
+        <input class="btn btn-primary text-white col-3 form-control" type="submit" value="Login" >
+        
+        {% if error %}
+        <p class="error mt-2"><strong>Error:</strong> {{ error }}
+        {% endif %}
+      </div>
+    </body>
+</html>
